@@ -16,7 +16,7 @@
             <label for="inputAddress"></label>
             <div class="form-group">
                 <label for="inputAddress">DDD</label>
-                <input type="text" name="nome" class="form-control" id="inputAddress" placeholder="Fulado De Tals">
+                <input type="number" name="nome" class="form-control" id="inputAddress" placeholder="32">
             </div>
             <div class="form-group">
                 <label for="inputAddress">Numero</label>

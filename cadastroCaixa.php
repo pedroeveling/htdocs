@@ -33,7 +33,7 @@
 </select>
 
                 <label for="inputAddress">Data</label>
-                <input type="date" name="data" class="form-control" id="inputAddress" placeholder="Av. Rio Branco">
+                <input type="date" name="data" class="form-control" id="inputAddress" >
             </div>
             <button type="submit" class="btn btn-primary" value="Submit" name="submit">Confirmar</button>
             
