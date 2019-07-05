@@ -51,7 +51,7 @@
                 <div class="class1" name= "editar">
                     <h1>Editar dados</h1>
                             <li> 
-                                <ul></ul>
+                                <ul><a href="Editar_dados.php"> Editar Dados</a></ul>
                             </li>
                </div>
 
@@ -59,6 +59,12 @@
                     <h1>Deletar Dados</h1>
                             <li> 
                                 <ul><a href="deletar.php">Deletar</ul>
+                            </li>
+               </div>
+               <div class="class1" name="Deletar dados">
+                    <h1>Buscar Dados</h1>
+                            <li> 
+                                <ul><a href="Buscas.php">Buscar</ul>
                             </li>
                </div>
     </div>

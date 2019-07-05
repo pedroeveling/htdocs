@@ -16,7 +16,7 @@
 
             <div class="form-group">
                 <label for="inputAddress">Nome</label>
-                <input type="text" name="nome" class="form-control" id="inputAddress" placeholder="Cafetão">
+                <input type="text" name="nome" class="form-control" id="inputAddress" placeholder="Nome">
             </div>
             <div class="form-group">
                 <label for="inputAddress">Horas</label>

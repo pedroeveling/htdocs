@@ -8,13 +8,12 @@
 </head>
 <body>
    
- <form action="" method="POST" target="_self">   <------- AQUI é UM FORMULARIO               // USAR COMO MODELO PARA OS OUTROS CADASTROS O CAMPO NAME, TEM QUE SER O MESMO DO $_POST['NOME']
-     PARA O PHP RECEBER 
+ <form action="" method="POST" target="_self">
     <legend>Informações Residenciais:</legend>  
             <div class="form-group">
                 <label for="inputAddress">Rua</label>
                 <input type="text" name="rua" class="form-control" id="inputAddress" placeholder="Av. Rio Branco">
-            </div>   // TIPO , NOME DO PARAMETRO ** VAI ALTERAR SÓ ISSO
+            </div> 
             <div class="form-group">
                 <label for="inputAddress">Numero</label>
                 <input type="text" name="numero" class="form-control" id="inputAddress" placeholder="123">
