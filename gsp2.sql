@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 29-Jun-2019 às 22:23
--- Versão do servidor: 10.1.38-MariaDB
--- versão do PHP: 7.3.4
+-- Tempo de geração: 05-Jul-2019 às 04:17
+-- Versão do servidor: 10.3.16-MariaDB
+-- versão do PHP: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `gsp2`
+-- Banco de dados: `gsp2`
 --
 
 -- --------------------------------------------------------
@@ -39,8 +39,8 @@ CREATE TABLE `caixa` (
 --
 
 INSERT INTO `caixa` (`id`, `funcionario`, `data`) VALUES
-(1, 2, '2019-06-11'),
-(2, 0, '0000-00-00');
+(1, 1, '2019-06-01'),
+(2, 2, '2019-06-02');
 
 -- --------------------------------------------------------
 
@@ -60,9 +60,9 @@ CREATE TABLE `cargo` (
 --
 
 INSERT INTO `cargo` (`id`, `nome`, `horas`, `salario`) VALUES
-(1, 'CafetÃ£o', '00:00:45', 4434),
-(2, 'Miliciano', '00:00:00', 30000),
-(3, 'Miliciano', '00:00:45', 30000);
+(1, 'cargo_1', '40:00:00', 1),
+(2, 'cargo_2', '40:00:00', 2),
+(3, 'cargo_3', '40:00:00', 3);
 
 -- --------------------------------------------------------
 
@@ -81,7 +81,7 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id`, `nome`, `cpf`) VALUES
-(1, 'Fulano', 3213123);
+(1, 'cliente_1', 1);
 
 -- --------------------------------------------------------
 
@@ -96,13 +96,6 @@ CREATE TABLE `compra` (
   `quantidade` int(11) NOT NULL,
   `valor` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `compra`
---
-
-INSERT INTO `compra` (`id`, `produto`, `fornecedor`, `quantidade`, `valor`) VALUES
-(1, 1, 3, 231, 4324);
 
 -- --------------------------------------------------------
 
@@ -126,7 +119,7 @@ CREATE TABLE `endereco` (
 --
 
 INSERT INTO `endereco` (`id`, `rua`, `numero`, `complemento`, `bairro`, `cidade`, `uf`, `cep`) VALUES
-(1, 'Rua Bolsonaro Filho', 123, '323', 'Grajau', 'Juiz de Fora', 'MG', 3232322);
+(1, 'rua_1', 1, '1', 'bairro_1', 'cidade_1', '1', 1);
 
 -- --------------------------------------------------------
 
@@ -137,7 +130,7 @@ INSERT INTO `endereco` (`id`, `rua`, `numero`, `complemento`, `bairro`, `cidade`
 CREATE TABLE `estoque` (
   `id` int(11) NOT NULL,
   `gerente` int(11) DEFAULT NULL,
-  `item` int(11) DEFAULT '0',
+  `item` int(11) DEFAULT 0,
   `produto` int(11) NOT NULL,
   `quantidade` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -147,8 +140,8 @@ CREATE TABLE `estoque` (
 --
 
 INSERT INTO `estoque` (`id`, `gerente`, `item`, `produto`, `quantidade`) VALUES
-(2, 0, NULL, 1, 32),
-(3, 2, NULL, 1, 32);
+(1, 1, 1, 1, 1),
+(2, 2, 2, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -169,8 +162,8 @@ CREATE TABLE `fornecedor` (
 --
 
 INSERT INTO `fornecedor` (`id`, `nome`, `cnpj`, `telefone`, `endereco`) VALUES
-(3, 'BolsoLicia', 2147483647, 1, 1),
-(4, 'EEee', 21312321, 1, 1);
+(1, 'fornecedor_1', 1, 1, 1),
+(2, 'fornecedor_2', 2, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -193,11 +186,11 @@ CREATE TABLE `funcionario` (
 --
 
 INSERT INTO `funcionario` (`id`, `nome`, `cpf`, `telefone`, `endereco`, `cargo`, `setor`) VALUES
-(1, 'Flávio Bolsonaro', 123124332, 1, 1, 2, 1),
-(2, 'Sergio Moro', 13123123, 1, 1, 1, 1),
-(4, 'sdasda', 2312312, 1, 1, 1, 0),
-(5, '', 0, 1, 1, 1, 2),
-(6, 'Flavio', 1321312, 1, 1, 2, 2);
+(1, 'funcionario_1', 1, 1, 1, 1, 1),
+(2, 'funcionario_2', 2, 2, 2, 2, 2),
+(3, 'funcionario_3', 3, 3, 3, 3, 3),
+(4, 'funcionario_4', 4, 4, 4, 4, 4),
+(5, 'funcionario_5', 5, 5, 5, 5, 5);
 
 -- --------------------------------------------------------
 
@@ -217,8 +210,8 @@ CREATE TABLE `item` (
 --
 
 INSERT INTO `item` (`id`, `quantidade`, `validade`, `produto`) VALUES
-(1, 4, '2019-06-19', 1),
-(2, 32, '2019-07-01', 2);
+(1, 1, '2019-06-01', 1),
+(2, 2, '2019-07-02', 2);
 
 -- --------------------------------------------------------
 
@@ -238,8 +231,8 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`id`, `nome`, `fornecedor`, `preco`) VALUES
-(1, '0', 3, 2131),
-(2, 'Chapeu', 3, 232);
+(1, 'produto_1', 1, 1),
+(2, 'produto_2', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -260,7 +253,7 @@ CREATE TABLE `promocao` (
 --
 
 INSERT INTO `promocao` (`id`, `nome`, `produto`, `inicio`, `fim`) VALUES
-(1, 'Grande Promocao  ', 2, '2019-04-23', '2019-06-30');
+(1, 'promocao_1', 1, '2019-06-01', '2019-06-02');
 
 -- --------------------------------------------------------
 
@@ -295,9 +288,9 @@ CREATE TABLE `salario` (
 --
 
 INSERT INTO `salario` (`id`, `valor`, `categoria`, `gratificacao`, `deducaoIRPF`, `valorBruto`) VALUES
-(1, 747.93, 'B', 321, 0.33, 321),
-(2, 790, 'C', 120, 0.33, 1000),
-(3, 760, 'D', 100, 0.34, 1000);
+(1, 1, 'A', 1, 1, 1),
+(2, 2, 'B', 2, 2, 2),
+(3, 3, 'C', 3, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -316,8 +309,8 @@ CREATE TABLE `setor` (
 --
 
 INSERT INTO `setor` (`id`, `coordenador`, `descricao`) VALUES
-(2, 1, 'muito lindo'),
-(3, 2, 'legal');
+(1, 1, 'nome_1'),
+(2, 2, 'nome_2');
 
 -- --------------------------------------------------------
 
@@ -336,9 +329,9 @@ CREATE TABLE `telefone` (
 --
 
 INSERT INTO `telefone` (`id`, `ddd`, `numero`) VALUES
-(1, 32, 32432423),
-(2, 32, 32432423),
-(3, 32, 999181717);
+(1, 1, 1),
+(2, 2, 2),
+(3, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -348,7 +341,7 @@ INSERT INTO `telefone` (`id`, `ddd`, `numero`) VALUES
 
 CREATE TABLE `venda` (
   `id` int(11) NOT NULL,
-  `codigo` int(8) NOT NULL DEFAULT '0',
+  `codigo` int(8) NOT NULL DEFAULT 0,
   `data` date NOT NULL,
   `valor` float NOT NULL,
   `item` int(8) NOT NULL,
@@ -361,34 +354,34 @@ CREATE TABLE `venda` (
 --
 
 INSERT INTO `venda` (`id`, `codigo`, `data`, `valor`, `item`, `caixa`, `cliente`) VALUES
-(1, 0, '2019-06-19', 232, 1, 1, 1);
+(1, 1, '2019-06-01', 1, 1, 1, 1);
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `caixa`
+-- Índices para tabela `caixa`
 --
 ALTER TABLE `caixa`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `caixaFuncionario` (`funcionario`);
 
 --
--- Indexes for table `cargo`
+-- Índices para tabela `cargo`
 --
 ALTER TABLE `cargo`
   ADD PRIMARY KEY (`id`),
   ADD KEY `salario` (`salario`);
 
 --
--- Indexes for table `cliente`
+-- Índices para tabela `cliente`
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`id`,`cpf`);
 
 --
--- Indexes for table `compra`
+-- Índices para tabela `compra`
 --
 ALTER TABLE `compra`
   ADD PRIMARY KEY (`id`),
@@ -396,20 +389,20 @@ ALTER TABLE `compra`
   ADD KEY `produto` (`produto`);
 
 --
--- Indexes for table `endereco`
+-- Índices para tabela `endereco`
 --
 ALTER TABLE `endereco`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `estoque`
+-- Índices para tabela `estoque`
 --
 ALTER TABLE `estoque`
   ADD PRIMARY KEY (`id`),
   ADD KEY `estoqueProduto` (`produto`);
 
 --
--- Indexes for table `fornecedor`
+-- Índices para tabela `fornecedor`
 --
 ALTER TABLE `fornecedor`
   ADD PRIMARY KEY (`id`),
@@ -417,7 +410,7 @@ ALTER TABLE `fornecedor`
   ADD KEY `telefone` (`telefone`) USING BTREE;
 
 --
--- Indexes for table `funcionario`
+-- Índices para tabela `funcionario`
 --
 ALTER TABLE `funcionario`
   ADD PRIMARY KEY (`id`),
@@ -426,27 +419,27 @@ ALTER TABLE `funcionario`
   ADD KEY `funcionarioCargo` (`cargo`);
 
 --
--- Indexes for table `item`
+-- Índices para tabela `item`
 --
 ALTER TABLE `item`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `produto`
+-- Índices para tabela `produto`
 --
 ALTER TABLE `produto`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fornecedor` (`fornecedor`);
 
 --
--- Indexes for table `promocao`
+-- Índices para tabela `promocao`
 --
 ALTER TABLE `promocao`
   ADD PRIMARY KEY (`id`),
   ADD KEY `promocaoProduto` (`produto`);
 
 --
--- Indexes for table `remuneracao`
+-- Índices para tabela `remuneracao`
 --
 ALTER TABLE `remuneracao`
   ADD PRIMARY KEY (`id`),
@@ -454,25 +447,25 @@ ALTER TABLE `remuneracao`
   ADD KEY `salario` (`salario`) USING BTREE;
 
 --
--- Indexes for table `salario`
+-- Índices para tabela `salario`
 --
 ALTER TABLE `salario`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `setor`
+-- Índices para tabela `setor`
 --
 ALTER TABLE `setor`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `telefone`
+-- Índices para tabela `telefone`
 --
 ALTER TABLE `telefone`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `venda`
+-- Índices para tabela `venda`
 --
 ALTER TABLE `venda`
   ADD PRIMARY KEY (`id`),
@@ -481,107 +474,107 @@ ALTER TABLE `venda`
   ADD KEY `cliente` (`cliente`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `caixa`
+-- AUTO_INCREMENT de tabela `caixa`
 --
 ALTER TABLE `caixa`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `cargo`
+-- AUTO_INCREMENT de tabela `cargo`
 --
 ALTER TABLE `cargo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `cliente`
+-- AUTO_INCREMENT de tabela `cliente`
 --
 ALTER TABLE `cliente`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `compra`
+-- AUTO_INCREMENT de tabela `compra`
 --
 ALTER TABLE `compra`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `endereco`
+-- AUTO_INCREMENT de tabela `endereco`
 --
 ALTER TABLE `endereco`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `estoque`
+-- AUTO_INCREMENT de tabela `estoque`
 --
 ALTER TABLE `estoque`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `fornecedor`
+-- AUTO_INCREMENT de tabela `fornecedor`
 --
 ALTER TABLE `fornecedor`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `funcionario`
+-- AUTO_INCREMENT de tabela `funcionario`
 --
 ALTER TABLE `funcionario`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `item`
+-- AUTO_INCREMENT de tabela `item`
 --
 ALTER TABLE `item`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `produto`
+-- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `promocao`
+-- AUTO_INCREMENT de tabela `promocao`
 --
 ALTER TABLE `promocao`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `remuneracao`
+-- AUTO_INCREMENT de tabela `remuneracao`
 --
 ALTER TABLE `remuneracao`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `salario`
+-- AUTO_INCREMENT de tabela `salario`
 --
 ALTER TABLE `salario`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `setor`
+-- AUTO_INCREMENT de tabela `setor`
 --
 ALTER TABLE `setor`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `telefone`
+-- AUTO_INCREMENT de tabela `telefone`
 --
 ALTER TABLE `telefone`
   MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `venda`
+-- AUTO_INCREMENT de tabela `venda`
 --
 ALTER TABLE `venda`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Constraints for dumped tables
+-- Restrições para despejos de tabelas
 --
 
 --
@@ -590,61 +583,12 @@ ALTER TABLE `venda`
 ALTER TABLE `compra`
   ADD CONSTRAINT `compraFornecedor` FOREIGN KEY (`fornecedor`) REFERENCES `fornecedor` (`id`),
   ADD CONSTRAINT `compraProduto` FOREIGN KEY (`produto`) REFERENCES `produto` (`id`);
-  ON UPDATE CASCADE ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `estoque`
 --
 ALTER TABLE `estoque`
   ADD CONSTRAINT `estoqueProduto` FOREIGN KEY (`produto`) REFERENCES `produto` (`id`);
-  ON UPDATE CASCADE ON DELETE CASCADE;
-
---
--- Limitadores para a tabela `fornecedor`
---
-ALTER TABLE `fornecedor`
-  ADD CONSTRAINT `endereco` FOREIGN KEY (`endereco`) REFERENCES `endereco` (`id`),
-  ADD CONSTRAINT `telefone` FOREIGN KEY (`telefone`) REFERENCES `telefone` (`id`);
-  ON UPDATE CASCADE ON DELETE CASCADE;
-
---
--- Limitadores para a tabela `funcionario`
---
-ALTER TABLE `funcionario`
-  ADD CONSTRAINT `funcionarioCargo` FOREIGN KEY (`cargo`) REFERENCES `cargo` (`id`),
-  ADD CONSTRAINT `funcionarioEndereco` FOREIGN KEY (`endereco`) REFERENCES `endereco` (`id`),
-  ADD CONSTRAINT `funcionarioTelefone` FOREIGN KEY (`telefone`) REFERENCES `telefone` (`id`);
-  ON UPDATE CASCADE ON DELETE CASCADE;
-
---
--- Limitadores para a tabela `produto`
---
-ALTER TABLE `produto`
-  ADD CONSTRAINT `produtoFornecedor` FOREIGN KEY (`fornecedor`) REFERENCES `fornecedor` (`id`);
-  ON UPDATE CASCADE ON DELETE CASCADE;
-
---
--- Limitadores para a tabela `promocao`
---
-ALTER TABLE `promocao`
-  ADD CONSTRAINT `promocaoProduto` FOREIGN KEY (`produto`) REFERENCES `produto` (`id`);
-  ON UPDATE CASCADE ON DELETE CASCADE;
-
---
--- Limitadores para a tabela `remuneracao`
---
-ALTER TABLE `remuneracao`
-  ADD CONSTRAINT `remuneracaoCargo` FOREIGN KEY (`cargo`) REFERENCES `cargo` (`id`),
-  ADD CONSTRAINT `remuneracaoSalario` FOREIGN KEY (`salario`) REFERENCES `salario` (`id`);
-  ON UPDATE CASCADE ON DELETE CASCADE;
-
---
--- Limitadores para a tabela `venda`
---
-ALTER TABLE `venda`
-  ADD CONSTRAINT `vendaCaixa` FOREIGN KEY (`caixa`) REFERENCES `caixa` (`id`),
-  ADD CONSTRAINT `vendaCliente` FOREIGN KEY (`cliente`) REFERENCES `cliente` (`id`),
-  ADD CONSTRAINT `vendaItem` FOREIGN KEY (`item`) REFERENCES `item` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
