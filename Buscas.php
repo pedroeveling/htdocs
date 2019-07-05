@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="interface2.css">
 	<script language="JavaScript">
 	
 	function Dados(valor){
@@ -322,15 +323,16 @@
 </head>
 
 
-<body>
-   
- <form action="" method="POST" target="_self"> 
-    <legend>Informar quais dados se quer pesquisar:</legend>  
-    <br>
+<<body>
+   <form action="" method="POST" target="_self"> 
+      <legend align="center">Informar em qual tabela se quer procurar:</legend>  
+    <div class="container6">
             
             
-            <div class="form-group">
-              <label for="inputAddress">Escolha a tabela de busca</label>
+           
+             
+			  
+			   <div class="select">
               <select name="tabela" onChange="Dados(this.value);">
 			  <option value="Escolha uma tabela">Escolha uma tabela</option> 
 			  <option value="setor">Pesquisar Setor</option> 
@@ -341,8 +343,8 @@
 			  <option value="promocao">Pesquisar Promoções</option>
 			</select>
             </div>
-			<div id="setores"></div>
-			<div id="setores2"></div>
+			 <div id="setores"></div>
+			 <div id="setores2"></div>
 			
             
             

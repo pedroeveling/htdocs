@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	
+	<link rel="stylesheet" type="text/css" href="interface2.css">
     
 <script language="JavaScript">
 function Dados(valor){
@@ -535,8 +535,8 @@ function Dados16(valor){
 </head>
 <body>
    <form action="" method="POST" target="_self"> 
-    <legend>Informar a tabela que se quer alterar:</legend>  
-    <br>
+      <legend align="center">Informar em qual tabela se quer cadastrar:</legend>  
+    <div class="container6">
             
             <label for="inputAddress">Escolha a tabela de busca</label>
             <div class="form-group">
@@ -544,7 +544,7 @@ function Dados16(valor){
             $query= "show tables";
             $consulta = mysqli_query($conexao, $query);
             ?>
-              
+              <div class="select">
               <select name="tabela" onChange="Dados(this.value);">
 			  <option value="Escolhas uma tabela">Escolhas uma tabela</option>
 			  <?php
@@ -557,10 +557,12 @@ function Dados16(valor){
             ?>  
 			</select>
             </div>
-			<div id="setores"></div>
-			<div id="setores2"></div>
+			</div>
+		
+			<div class="select"><div id="setores"></div></div>
+			<div class="select"><div id="setores2"></div></div>
 			
-            
+          </div>  
             
 </form>     
 </body>

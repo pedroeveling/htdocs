@@ -14,59 +14,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles.css" />
+	<link rel="stylesheet" type="text/css" href="interface2.css">
 </head>
 <body>
+
     <title>Trabalho de BD</title>
     <div class="main">
     <img src="logo.png" class="img" alt="some text" width=300 height=300>
-    <h1> Cadastro </h1>
-            <div class="class1">    
-
-                        <li>
-                <ul><a href="cadastroEstoque.php"> Cadastrar Estoque</a>   </ul> 
-                <ul><a href="cadastroEndereco.php"> Cadastrar Endereco </a></ul>
-                <ul><a href="cadastroCaixa.php"> Cadastrar Caixa </a></ul>
-                <ul><a href="cadastroCargo.php"> Cadastrar Cargo </a></ul>
-                <ul><a href="cadastroCliente.php"> Cadastrar Cliente </a>   </ul>
-                <ul><a href="cadastroFornecedor.php"> Cadastrar Fornecedor </a> </ul>  
-                <ul><a href="cadastroProduto.php"> Cadastrar Produto </a> </ul> 
-                <ul><a href="cadastroCompra.php"> Cadastrar compra </a>  </ul> 
-                </li>
-            </div>
-            <div class="class2">
-                <li class="li2">
-                    
-                <ul><a href="cadastroFuncionario.php"> Cadastrar Funcionario</a>   </ul> 
-                <ul><a href="cadastroPromocao.php"> Cadastrar Promoção</a>   </ul> 
-                <ul><a href="cadastroSalario.php"> Cadastrar Salario</a>   </ul>  
-                <ul><a href="cadastroSetor.php"> Cadastrar Setor</a>   </ul>  
-                <ul><a href="cadastroTelefone.php"> Cadastrar Telefone</a>   </ul>
-                <ul><a href="cadastroItem.php"> Cadastrar Item</a>   </ul>      
-                <ul><a href="cadastroVenda.php"> Cadastrar Venda</a>   </ul>
-                <br>
-                <li>
-            </div>
-        
+	
+	
+	<form action="Cadastro.php"   method="POST">
+    <input type="submit" class="sb2"  value="Cadastro">
+	</form>
+	<form action="deletar.php"   method="POST">
+    <input type="submit" class="sb2"  value="Deletar">
+	</form>	
+    <form action="Editar_dados.php"   method="POST">
+    <input type="submit" class="sb2"  value="Editar">
+	</form>
+ <form action="Buscas.php"   method="POST">
+    <input type="submit" class="sb2"  value="Consulta">
+	</form>     
     
-                <div class="class1" name= "editar">
-                    <h1>Editar dados</h1>
-                            <li> 
-                                <ul><a href="Editar_dados.php"> Editar Dados</a></ul>
-                            </li>
-               </div>
-
-                <div class="class1" name="Deletar dados">
-                    <h1>Deletar Dados</h1>
-                            <li> 
-                                <ul><a href="deletar.php">Deletar</ul>
-                            </li>
-               </div>
-               <div class="class1" name="Deletar dados">
-                    <h1>Buscar Dados</h1>
-                            <li> 
-                                <ul><a href="Buscas.php">Buscar</ul>
-                            </li>
-               </div>
+					 
+               
+                      
     </div>
 </body>
 </html>

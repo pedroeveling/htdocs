@@ -4,26 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="interface2.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <?php 
     include("conexao.php")
     ?>
 </head>
 <body>
-   
+     <legend align="center">Prencha os dados:</legend> 
  <form action="" method="POST" target="_self"> 
-    <legend>Informações sobre Estoque:</legend>
+ 
+ <div class="container6"> 
+<table id="tabela"> 	
+    <tr>
+    
+    
 
-                <label for="inputAddress">Quantidade</label>
-                <input type="number" name="quantidade" class="form-control" id="inputAddress" placeholder="32">
+                <td><label for="inputAddress">Quantidade</label></td>
+                <td><input type="number" name="quantidade" class="form-control" id="inputAddress" placeholder="32"></td>
               
-    <br>
-            <label for="inputAddress">Gerente</label>
-            <div class="form-group">
+   </tr>
+            <tr>
+			<td><label for="inputAddress">Gerente</label></td>
+            
             <?php 
             $query= "select id,nome from funcionario where cargo='1'";
             $consulta = mysqli_query($conexao, $query);
             ?>
-            <select name="gerente" id="gerente">
+            <td>  <div class="select"> <select name="gerente" id="gerente">
             <?php
             while($result = mysqli_fetch_array($consulta))
             {
@@ -34,15 +42,16 @@
             }
     
             ?>
-</select>
-<br>
-<label for="inputAddress">Produto</label>
-            <div class="form-group">
+</select></div> </td>
+</tr>
+<tr>
+<td><label for="inputAddress">Produto</label></td>
+            
             <?php 
             $query= "select id,nome from produto";
             $consulta = mysqli_query($conexao, $query);
             ?>
-            <select name="produto" id="produto">
+          <td>  <div class="select">  <select name="produto" id="produto">
             <?php
             while($result = mysqli_fetch_array($consulta))
             {
@@ -53,11 +62,13 @@
             }
     
             ?>
-</select>
+</select></div> </td>
+     </tr>
+<tr>
 
-
-            <button type="submit" class="btn btn-primary" value="Submit" name="submit">Confirmar</button>
-            
+             <td colspan="1"><button type="submit" class="sb" value="Submit" name="submit">Confirmar</button></td>
+	<td colspan="2"><a href="index.php" ><input type="button"  class="sb"value="Home" id="botão" ></a></td>
+</tr>   
 </form>       <?php
         /* Ligação com Banco de Dados */
         if(isset($_POST["submit"]))  // AQUI RECEBE OS DADOS DO FORMULARIO E REPASSA PARA AS VARIAVEIS

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="interface2.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <?php 
    include("conexao.php");
     $caixa = $_GET['caixa'];
@@ -12,9 +14,13 @@
     ?>
 </head>
 <body>
-   
- <form action="" method="POST" target="_self"> 
-    <legend>Alterar Salario</legend>
+    <legend align="center">Prencha os dados:</legend> 
+ 
+  <form action="" method="POST" target="_self"> 
+     
+	<div class="container6"> 
+<table id="tabela"> 	
+    <tr>
 	<?php
             while($result = mysqli_fetch_array($consulta))
             {
@@ -25,23 +31,29 @@
 			  }
     
             ?>
-    <label for="inputAddress">Categoria</label>
-                <input type="text" name="categoria" class="form-control" id="inputAddress" placeholder="categoria" value="<?php echo $nome;?>">
-                <label for="inputAddress">Valor Bruto</label>
-                <input type="number" name="valb" class="form-control" id="inputAddress" placeholder="Nome" value="<?php echo $valor;?>">
-                <label for="inputAddress">Gratificação</label>
-                <input type="number" name="gratificacao" class="form-control" id="inputAddress" placeholder="Nome" value="<?php echo $gratificacao;?>">
-                <label for="inputAddress">DeducaoIRPF</label>
-                <input type="number" name="irpf" step=".01"class="form-control" id="inputAddress" placeholder="Nome" value="<?php echo $irpf;?>">
-              
-    <br>
-<br>
+    <td><label for="inputAddress">Categoria</label>
+               <td> <input type="text" name="categoria" class="txt2" id="inputAddress" placeholder="categoria" value="<?php echo $nome;?>"></td></tr>
+             
+<tr>
+			 <td>  <label for="inputAddress">Valor Bruto</label></td>
+             <td>   <input type="number" name="valb" class="txt2" id="inputAddress" placeholder="Nome" value="<?php echo $valor;?>"></td></tr>
+            <tr>
 
+			<td>  <label for="inputAddress">Gratificação</label></td>
+             <td>   <input type="number" name="gratificacao" class="txt2" id="inputAddress" placeholder="Nome" value="<?php echo $gratificacao;?>"></td></tr>
+           <tr>
 
+		   <td>   <label for="inputAddress">DeducaoIRPF</label></td>
+             <td>   <input type="number" name="irpf" step=".01"class="txt2" id="inputAddress" placeholder="Nome" value="<?php echo $irpf;?>"></td>
+</tr>
 
-            <button type="submit" class="btn btn-primary" value="Submit" name="submit">Confirmar</button>
-            
-</form>       <?php
+        <tr>    
+           <td colspan="1"> <button type="submit" class="sb" value="Submit" name="submit">Confirmar</button></td>
+			<td colspan="2"><a href="index.php" ><input type="button"  class="sb"value="Home" id="botão" ></a></td>
+      </tr>      
+</table>
+</form>
+</div>       <?php
         /* Ligação com Banco de Dados */
         if(isset($_POST["submit"]))  // AQUI RECEBE OS DADOS DO FORMULARIO E REPASSA PARA AS VARIAVEIS
         {

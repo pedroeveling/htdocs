@@ -5,35 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="interface2.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 <body>
-   
+   <legend align="center">Prencha os dados:</legend> 
  <form action="" method="POST" target="_self">
-    <legend>Informações Residenciais:</legend>  
-            <div class="form-group">
-                <label for="inputAddress">Rua</label>
-                <input type="text" name="rua" class="form-control" id="inputAddress" placeholder="Av. Rio Branco">
-            </div> 
-            <div class="form-group">
-                <label for="inputAddress">Numero</label>
-                <input type="text" name="numero" class="form-control" id="inputAddress" placeholder="123">
-            </div>
-            <div class="form-group">
-                <label for="inputAddress">Bairro</label>
-                <input type="text" name="bairro" class="form-control" id="inputAddress" placeholder="Jamaica">
-            </div>
-            <div class="form-group">
-                <label for="inputAddress2">Complemento</label>
-                <input type="text" name="complemento" class="form-control" id="inputAddress2" placeholder="Apartmento, estudio, or andar">
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                <label for="inputCity">Cidade</label>
-                <input type="text" name="cidade" class="form-control" id="inputCity" placeholder="Cidade">
-                </div>
-                <div class="form-group col-md-4">
-                <label for="inputState">Estado</label>
-                <select id="inputState" name="estado" class="form-control">
+ 
+ <div class="container6"> 
+<table id="tabela"> 	
+    <tr>
+    
+    
+                <td><label for="inputAddress">Rua</label></td>
+               <td> <input type="text" name="rua" class="txt2" id="inputAddress" placeholder="Av. Rio Branco"></td>
+          </tr>
+		  <tr>
+               <td> <label for="inputAddress">Numero</label></td>
+               <td> <input type="text" name="numero" class="txt2" id="inputAddress" placeholder="123"></td>
+           </tr>
+<tr>		   
+              <td>  <label for="inputAddress">Bairro</label></td>
+               <td> <input type="text" name="bairro" class="txt2" id="inputAddress" placeholder="Jamaica"></td>
+         </tr> 
+<tr>		 
+              <td>  <label for="inputAddress2">Complemento</label></td>
+               <td> <input type="text" name="complemento" class="txt2" id="inputAddress2" placeholder="Apartmento, estudio, or andar"></td>
+            
+         </tr>  
+<tr>		 
+               <td> <label for="inputCity">Cidade</label></td>
+              <td>  <input type="text" name="cidade" class="txt2" id="inputCity" placeholder="Cidade"></td>
+           </tr>
+<tr>		   
+               <td> <label for="inputState">Estado</label></td>
+              <td> <div class="select"> <select id="slct" name="estado" >
                     <option selected>Escolha...</option>
                     <option>AC</option>
                     <option>AL</option>
@@ -62,15 +68,20 @@
                     <option>SP</option>
                     <option>SE</option>
                     <option>TO</option>
-                </select>
-                </div>
-                <div class="form-group col-md-2">
-                <label for="inputZip">CEP</label>
-                <input type="text" name="cep" class="form-control" id="cep" onkeypress="mascara(this, '##.###-###')" placeholder="11.111-111" maxlength="10">
-                </div>
-                            <button type="submit" class="btn btn-primary" value="Submit" name="submit">Confirmar</button>
-            </div>
-</form>       <?php
+                </select></div></td>
+               
+            </tr>
+			<tr>		
+               <td> <label for="inputZip">CEP</label></td>
+              <td>  <input type="text" name="cep" class="txt2" id="cep" onkeypress="mascara(this, '##.###-###')" placeholder="11.111-111" maxlength="10"></td></tr>
+              <tr> 
+                           <td colspan="2"><button type="submit" class="sb" value="Submit" name="submit">Confirmar</button></td>
+							 <td colspan="2"><a href="index.php" ><input type="button"  class="sb"value="Home" id="botão" ></a></td>
+            </tr>
+			
+</table>
+	</form>
+    </div>       <?php
         /* Ligação com Banco de Dados */
         if(isset($_POST["submit"]))  // AQUI RECEBE OS DADOS DO FORMULARIO E REPASSA PARA AS VARIAVEIS
         {

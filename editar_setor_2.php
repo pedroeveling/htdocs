@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="interface2.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <?php 
     include("conexao.php");
     $caixa = $_GET['caixa'];
@@ -12,9 +14,13 @@
     ?>
 </head>
 <body>
-   
- <form action="" method="POST" target="_self"> 
-    <legend>Alterar Setor:</legend>
+    <legend align="center">Prencha os dados:</legend> 
+ 
+  <form action="" method="POST" target="_self"> 
+     
+	<div class="container6"> 
+<table id="tabela"> 	
+    <tr>
 	<?php
             while($result = mysqli_fetch_array($consulta))
             {
@@ -24,17 +30,18 @@
     
             ?>
 
-                <label for="inputAddress">Descrição</label>
-                <input type="text" name="descricao" class="form-control" id="inputAddress" placeholder=" descricao do setor" value="<?php echo $nome;?>">
+               <td> <label for="inputAddress">Descrição</label></td>
+               <td> <input type="text" name="descricao" class="txt2" id="inputAddress" placeholder=" descricao do setor" value="<?php echo $nome;?>"></td>
               
-    <br>
-            <label for="inputAddress">Gerente</label>
-            <div class="form-group">
+			  </tr>
+			  <tr><td>
+       <label for="inputAddress">Gerente</label></td>
+            
             <?php 
             $query2= "select id,nome from funcionario where cargo='1'";
             $consulta2 = mysqli_query($conexao, $query2);
             ?>
-            <select name="gerente" id="gerente">
+             <td> <div class="select"><select name="gerente" id="gerente">
             <?php
             while($result = mysqli_fetch_array($consulta2))
             {
@@ -45,11 +52,16 @@
             }
     
             ?>
-</select>
-<br>
-            <button type="submit" class="btn btn-primary" value="Submit" name="submit">Confirmar</button>
-            
-</form>       <?php
+            </select></div> </td>
+           </tr>
+      <tr>    
+           <td colspan="1"> <button type="submit" class="sb" value="Submit" name="submit">Confirmar</button></td>
+			<td colspan="2"><a href="index.php" ><input type="button"  class="sb"value="Home" id="botão" ></a></td>
+      </tr>      
+</table>
+</form>
+</div>
+      <?php
         /* Ligação com Banco de Dados */
         if(isset($_POST["submit"]))  // AQUI RECEBE OS DADOS DO FORMULARIO E REPASSA PARA AS VARIAVEIS
         {

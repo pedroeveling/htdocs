@@ -4,33 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="interface2.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <?php 
     include("conexao.php")
     ?>
 </head>
 <body>
-   
+    <legend align="center">Prencha os dados:</legend> 
  <form action="" method="POST" target="_self"> 
-    <legend>Cadastro Cargo</legend>  
-    <br>
-
-            <div class="form-group">
-                <label for="inputAddress">data</label>
-                <input type="date" name="data" class="form-control" id="inputAddress" placeholder="data">
-            </div>
-            <div class="form-group">
-                <label for="inputAddress"></label>
-                <input type="number" name="valor" class="form-control" id="inputAddress" placeholder="R$ 40,00">
-            </div>
-            <div class="form-group">
-            <br>
-<label for="inputAddress">Item</label>
-            <div class="form-group">
+     <div class="container6"> 
+<table id="tabela"> 	
+    <tr>
+           
+               <td> <label for="inputAddress">data</label></td>
+               <td><input type="date" name="data" class="txt2" id="inputAddress" placeholder="data"></td>
+</tr>
+<tr>
+                <td><label for="inputAddress">Preço</label></td>
+                <td><input type="number" name="valor" class="txt2" id="inputAddress" placeholder="R$ 40,00"></td>
+</tr>            
+  <tr>        
+<td><label for="inputAddress">Item</label></td>
+           
             <?php 
             $query= "select id from salario";
             $consulta = mysqli_query($conexao, $query);
             ?>
-            <select name="item" id="item">
+           <td>  <div class="select">  <select name="item" id="item">
             <?php
             while($result = mysqli_fetch_array($consulta))
             {
@@ -40,15 +41,16 @@
             }
     
             ?>
-            </select>
-            <br>
-            <label for="inputAddress">Caixa</label>
-            <div class="form-group">
+            </select></div> </td>
+     </tr>
+          <tr>
+            <td><label for="inputAddress">Caixa</label></td>
+            
             <?php 
             $query= "select id from caixa";
             $consulta = mysqli_query($conexao, $query);
             ?>
-            <select name="caixa" id="caixa">
+            <td>  <div class="select">  <select name="caixa" id="caixa">
             <?php
             while($result = mysqli_fetch_array($consulta))
             {
@@ -58,17 +60,17 @@
             }
     
             ?>
-            </select>
-
-            </div>
+            </select></div> </td>
+     </tr>
+          <tr>
             
-            <label for="inputAddress">Cliente</label>
-            <div class="form-group">
+            <td><label for="inputAddress">Cliente</label></td>
+            
             <?php 
             $query= "select id,nome from cliente";
             $consulta = mysqli_query($conexao, $query);
             ?>
-            <select name="cliente" id="cliente">
+            <td>  <div class="select">  <select name="cliente" id="cliente">
             <?php
             while($result = mysqli_fetch_array($consulta))
             {
@@ -79,11 +81,12 @@
             }
     
             ?>
-            </select>
-
-            </div>
-            <button type="submit" class="btn btn-primary" value="Submit" name="submit">Confirmar</button>
-            
+           </select></div> </td>
+     </tr>
+        <tr>    
+            <td colspan="1"><button type="submit" class="sb" value="Submit" name="submit">Confirmar</button></td>
+			<td colspan="2"><a href="index.php" ><input type="button"  class="sb"value="Home" id="botão" ></a></td>
+          </tr>  
 </form>       <?php
         /* Ligação com Banco de Dados */
         if(isset($_POST["submit"]))  // AQUI RECEBE OS DADOS DO FORMULARIO E REPASSA PARA AS VARIAVEIS

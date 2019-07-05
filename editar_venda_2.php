@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="interface2.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <?php 
     include("conexao.php");
     $caixa = $_GET['caixa'];
@@ -13,13 +15,16 @@
     ?>
 </head>
 <body>
-   
- <form action="" method="POST" target="_self"> 
-    <legend>Editar venda</legend>  
-    <br>
+    <legend align="center">Prencha os dados:</legend> 
+ 
+  <form action="" method="POST" target="_self"> 
+     
+	<div class="container6"> 
+<table id="tabela"> 	
+    <tr>
 
-            <div class="form-group">
-                <label for="inputAddress">data</label>
+            
+                <td><label for="inputAddress">data</label></td>
 				<?php
             while($result = mysqli_fetch_array($consulta))
             {
@@ -29,21 +34,20 @@
 			  }
     
             ?>
-                <input type="date" name="data" class="form-control" id="inputAddress" placeholder="data" value="<?php echo $data;?>">
-            </div>
-            <div class="form-group">
-                <label for="inputAddress">Valor</label>
-                <input type="number" name="valor" class="form-control" id="inputAddress" placeholder="R$ 40,00" value="<?php echo $valor;?>">
-            </div>
-            <div class="form-group">
-            <br>
-<label for="inputAddress">Item</label>
-            <div class="form-group">
+              <td>  <input type="date" name="data" class="txt2" id="inputAddress" placeholder="data" value="<?php echo $data;?>"></td>
+            
+            </tr>
+			<tr>
+              <td>  <label for="inputAddress">Valor</label></td>
+                <td><input type="number" name="valor" class="txt2" id="inputAddress" placeholder="R$ 40,00" value="<?php echo $valor;?>"></td>
+            <tr><td>
+<label for="inputAddress">Item</label></td>
+            
             <?php 
             $query2= "select i.id,p.nome from item i inner join produto p on (i.produto = p.id) ";
             $consulta2 = mysqli_query($conexao, $query2);
             ?>
-            <select name="item" id="item">
+            <td> <div class="select"><select name="item" id="item">
             <?php
             while($result = mysqli_fetch_array($consulta2))
             {
@@ -54,15 +58,15 @@
             }
     
             ?>
-            </select>
-            <br>
-            <label for="inputAddress">Caixa</label>
-            <div class="form-group">
+            </select></div> </td>
+           </tr>
+            <tr><td><label for="inputAddress">Caixa</label></td>
+            
             <?php 
             $query3= "select c.id,f.nome from caixa c inner join funcionario f on (f.id = c.funcionario)";
             $consulta3 = mysqli_query($conexao, $query3);
             ?>
-            <select name="caixa" id="caixa">
+             <td> <div class="select"><select name="caixa" id="caixa">
             <?php
             while($result = mysqli_fetch_array($consulta3))
             {
@@ -73,17 +77,15 @@
             }
     
             ?>
-            </select>
-
-            </div>
-            
-            <label for="inputAddress">Cliente</label>
-            <div class="form-group">
+           </select></div> </td>
+           </tr>
+            <tr><td><label for="inputAddress">Cliente</label></td>
+           
             <?php 
             $query4= "select id,nome from cliente";
             $consulta4 = mysqli_query($conexao, $query4);
             ?>
-            <select name="cliente" id="cliente">
+            <td> <div class="select"> <select name="cliente" id="cliente">
             <?php
             while($result = mysqli_fetch_array($consulta4))
             {
@@ -94,12 +96,15 @@
             }
     
             ?>
-            </select>
-
-            </div>
-            <button type="submit" class="btn btn-primary" value="Submit" name="submit">Confirmar</button>
-            
-</form>       <?php
+           </select></div> </td>
+           </tr>
+            <tr>    
+           <td colspan="1"> <button type="submit" class="sb" value="Submit" name="submit">Confirmar</button></td>
+			<td colspan="2"><a href="index.php" ><input type="button"  class="sb"value="Home" id="botão" ></a></td>
+      </tr>      
+</table>
+</form>
+</div>   <?php
         /* Ligação com Banco de Dados */
         if(isset($_POST["submit"]))  // AQUI RECEBE OS DADOS DO FORMULARIO E REPASSA PARA AS VARIAVEIS
         {

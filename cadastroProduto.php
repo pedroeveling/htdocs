@@ -4,25 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="interface2.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <?php 
     include("conexao.php")
     ?>
 </head>
 <body>
-   
- <form action="" method="POST" target="_self"> 
-    <legend>Informações sobre Produto:</legend>
-                <label for="inputAddress">Nome</label>
-                <br>
-                <input type="text" name="nome" class="form-control" id="inputAddress" placeholder="Nome do produto">
-    <br>
-            <label for="inputAddress">Fornecedor</label>
-            <div class="form-group">
+     <legend align="center">Prencha os dados:</legend>  
+ <form action="" method="POST" target="_self">
+
+
+<div class="container6"> 
+<table id="tabela"> 	
+    <tr> 
+  
+               <td> <label for="inputAddress">Nome</label></td>
+                
+			  
+              <td>  <input type="text" name="nome" class="txt2" id="inputAddress" placeholder="Nome do produto"></td>
+  </tr>
+         <tr> 
+
+		  <td> <label for="inputAddress">Fornecedor</label></td>
+          
             <?php 
             $query= "select id,nome from fornecedor";
             $consulta = mysqli_query($conexao, $query);
             ?>
-            <select name="fornecedor" id="fornecedor">
+           <td>  <div class="select"> <select name="fornecedor" id="fornecedor">
             <?php
             while($result = mysqli_fetch_array($consulta))
             {
@@ -33,16 +43,20 @@
             }
     
             ?>
-            </select>
-            <br>
-            <label for="inputAddress">preco</label>
-            <br>
-                <input type="number" name="preco" class="form-control" id="inputAddress" placeholder="666">
-            <br>
-
-
-            <button type="submit" class="btn btn-primary" value="Submit" name="submit">Confirmar</button>
+          </select></div> </td>
+     </tr>
+      <tr> 
             
+           <td> <label for="inputAddress">preco</label></td>
+           
+                <td><input type="number" name="preco" class="txt2" id="inputAddress" placeholder="666"></td>
+        
+ </tr>
+ <tr>
+
+            <td colspan="1"><button type="submit" class="sb" value="Submit" name="submit">Confirmar</button></td>
+			<td colspan="2"><a href="index.php" ><input type="button"  class="sb"value="Home" id="botão" ></a></td>
+     </tr>       
 </form>       <?php
         /* Ligação com Banco de Dados */
         if(isset($_POST["submit"]))  // AQUI RECEBE OS DADOS DO FORMULARIO E REPASSA PARA AS VARIAVEIS
